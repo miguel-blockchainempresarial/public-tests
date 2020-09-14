@@ -1,0 +1,106 @@
+{
+    "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+            "displayOrder": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "certificate": {
+                "order": ["titleRegister", "recipient", "issuer", "credential", "ipfsHash", "yearOfAward", "country"],
+                "type": "object",
+                "properties": {
+                    "country": {
+                        "title": "Country",
+                        "isVar": true,
+                        "originalValue": "metadata.recipient.pais",
+                        "type": ["string", "null"]
+                    },
+                    "titleRegister": {
+                        "title": "Titulo del registro",
+                        "isVar": true,
+                        "originalValue": "metadata.certificate.titleRegister",
+                        "type": ["string", "null"]
+                    },
+                    "ipfsHash": {
+                        "title": "IPFS Hash Document",
+                        "isVar": true,
+                        "originalValue": "metadata.certificate.ipfsHash",
+                        "type": ["string", "null"]
+                    },
+                    "credential": {
+                        "title": "Credential",
+                        "isVar": true,
+                        "originalValue": "metadata.certificate.credential",
+                        "type": ["string", "null"]
+                    },
+                    "yearOfAward": {
+                        "title": "Year of award",
+                        "isVar": true,
+                        "originalValue": "metadata.certificate.yearOfAward",
+                        "type": ["string", "null"]
+                    },
+                    "recipient": {
+                        "title": "Recipient",
+                        "isVar": true,
+                        "originalValue": "metadata.certificate.recipient",
+                        "type": ["string", "null"]
+                    },
+                    "issuer": {
+                        "title": "Issuer",
+                        "isVar": true,
+                        "originalValue": "metadata.recipient.emisor",
+                        "type": ["string", "null"]
+                    }
+                }
+            },
+            "recipient": {
+                "properties": {
+                    "ciudad": {
+                        "title": "ciudad",
+                        "type": "string"
+                    },
+                    "estado": {
+                        "title": "estado",
+                        "type": "string"
+                    },
+                    "pais": {
+                        "title": "pais",
+                        "type": "string"
+                    },
+                    "emisor": {
+                        "title": "emisor",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "certificate": {
+        "country": "*|COUNTRY|*",
+        "ipfsHash": "*|IPFSHASH|*",
+        "credential": "*|CREDENTIAL|*",
+        "yearOfAward": "*|YEARAWARD|*",
+        "recipient": "*|NAMERECIPIENT|*",
+        "issuer": "*|NAMEISSUER|*",
+        "titleRegister": "*|TITLEREGISTER|*"
+    },
+    "recipient": {
+        "ciudad": "*|CITY|*",
+        "estado": "*|STATE|*",
+        "pais": "*|COUNTRY|*",
+        "emisor": "*|NAMEISSUER|*"
+    },
+    "displayOrder": [
+        "certificate.titleRegister",
+        "certificate.recipient",
+        "certificate.issuer",
+        "certificate.credential",
+        "certificate.yearOfAward",
+        "certificate.country",
+        "certificate.ipfsHash"
+    ]
+}

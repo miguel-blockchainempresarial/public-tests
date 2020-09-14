@@ -1,0 +1,123 @@
+{
+    "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+            "displayOrder": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "certificate": {
+                "order": ["recipient", "issuer", "credential", "academicProgram", "yearOfAward", "country"],
+                "type": "object",
+                "properties": {
+                    "country": {
+                        "title": "Country",
+                        "isVar": true,
+                        "originalValue": "metadata.recipient.pais",
+                        "type": ["string", "null"]
+                    },
+                    "academicProgram": {
+                        "title": "Academic program",
+                        "isVar": true,
+                        "originalValue": "metadata.recipient.titulo",
+                        "type": ["string", "null"]
+                    },
+                    "credential": {
+                        "title": "Credential",
+                        "isVar": true,
+                        "originalValue": "metadata.recipient.ttuloGrado",
+                        "type": ["string", "null"]
+                    },
+                    "yearOfAward": {
+                        "title": "Year of award",
+                        "isVar": true,
+                        "originalValue": "metadata.recipient.fechadeGraduacin",
+                        "type": ["string", "null"]
+                    },
+                    "recipient": {
+                        "title": "Recipient",
+                        "isVar": true,
+                        "originalValue": "recipient.fullName",
+                        "type": ["string", "null"]
+                    },
+                    "issuer": {
+                        "title": "Issuer",
+                        "isVar": true,
+                        "originalValue": "metadata.recipient.emisor",
+                        "type": ["string", "null"]
+                    }
+                }
+            },
+            "recipient": {
+                "properties": {
+                    "titulo": {
+                        "title": "titulo",
+                        "type": "string"
+                    },
+                    "escuela": {
+                        "title": "escuela",
+                        "type": "string"
+                    },
+                    "ttuloGrado": {
+                        "title": "ttuloGrado",
+                        "type": "string"
+                    },
+                    "ciudad": {
+                        "title": "ciudad",
+                        "type": "string"
+                    },
+                    "estado": {
+                        "title": "estado",
+                        "type": "string"
+                    },
+                    "matricula": {
+                        "title": "matricula",
+                        "type": "string"
+                    },
+                    "fechadeGraduacin": {
+                        "title": "fechadeGraduacin",
+                        "type": "string"
+                    },
+                    "pais": {
+                        "title": "pais",
+                        "type": "string"
+                    },
+                    "emisor": {
+                        "title": "emisor",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "certificate": {
+        "country": "*|COUNTRY|*",
+        "academicProgram": "*|ACADEMICPROGRAM|*",
+        "credential": "*|CREDENTIAL|*",
+        "yearOfAward": "*|YEARAWARD|*",
+        "recipient": "*|NAMERECIPIENT|*",
+        "issuer": "*|NAMEISSUER|*"
+    },
+    "recipient": {
+        "titulo": "*|ACADEMICPROGRAM|*",
+        "escuela": "*|SCHOOL|*",
+        "ttuloGrado": "*|CREDENTIAL|*",
+        "ciudad": "*|CITY|*",
+        "estado": "*|STATE|*",
+        "matricula": "*|STUDENTID|*",
+        "fechadeGraduacin": "*|YEARAWARD|*",
+        "pais": "*|COUNTRY|*",
+        "emisor": "*|NAMEISSUER|*"
+    },
+    "displayOrder": [
+        "certificate.recipient",
+        "certificate.issuer",
+        "certificate.credential",
+        "certificate.academicProgram",
+        "certificate.yearOfAward",
+        "certificate.country"
+    ]
+}
